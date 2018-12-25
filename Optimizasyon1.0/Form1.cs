@@ -247,7 +247,7 @@ namespace Optimizasyon1._0
             //Buraya geldi1
             U[0] = 0;
             
-            for (int p = 0; p < 5; p++)
+            for (int p = 0; p < 3; p++)
             {
                 for (int i = 0; i < str; i++)
                 {
@@ -272,14 +272,6 @@ namespace Optimizasyon1._0
             }
             ArzTopla();
             //u0 u 1 v1 v3
-            //LabelKutu[0, 0].Text = Convert.ToString(U[0]);
-            //LabelKutu[1, 0].Text = Convert.ToString(U[1]);
-            //LabelKutu[2, 0].Text = Convert.ToString(U[2]);
-            //LabelKutu[3, 0].Text = Convert.ToString(U[3]);
-            //LabelKutu[0, 0].Text = Convert.ToString(V[0]);
-            //LabelKutu[0, 1].Text = Convert.ToString(V[1]);
-            //LabelKutu[0, 2].Text = Convert.ToString(V[2]);
-            //LabelKutu[0, 3].Text = Convert.ToString(V[3]);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -324,14 +316,18 @@ namespace Optimizasyon1._0
         private void OptimumHesapla()
         {
             int a = 0;
+            label7.Text = "Vi => ";
+            label8.Text = "Ui => ";
             for (int i = 0; i < str; i++)
             {
                 for (int k = 0; k < stn; k++)
                 {
                     if (dizi2[i, k] == -1)
                     {
+                        //Gizli maliyet hesabı
                         O[a] = dizi[i, k] - (U[i] + V[k]);
-                        label7.Text = label7.Text + " - V" + (a+1) + "=" + O[a];
+                        label7.Text = label7.Text + "  V" + (a + 1) + "= " + O[a] + "  ";
+                        label8.Text = label8.Text + "  U" + (a + 1) + "= " + U[i] + "  ";
                         //TextKutu[i, k].Text = Convert.ToString(O[a]);
                         a++;
                     }
@@ -346,6 +342,7 @@ namespace Optimizasyon1._0
             //    TextKutu[1, 1].Text = Convert.ToString(O[3]);
                 if (O[i] < 0)
                 {
+          
                     var LabelHata = new Label();
                     LabelHata.Left = 20;
                     LabelHata.Top = 60;
@@ -371,13 +368,13 @@ namespace Optimizasyon1._0
             {
                 for (int k = 0; k < stn; k++)
                 {
-                    TextKutu[i, k].Text = "";
+                 //   TextKutu[i, k].Text = "";
                     TextKutu2[i, k].Text = "";
                 }
             }
             label6.Text = "";
             DiziDoldur(str,stn);
-            TextKutuBos2[stn].Text = "";
+           // TextKutuBos2[stn].Text = "";
         }           
         private void button1_Click(object sender, EventArgs e)
         {
